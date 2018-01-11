@@ -1,5 +1,5 @@
 class WorkshopsController < ApplicationController
-  before_action :get_workshop, only: [:show, :edit, :update, :destroy]
+  before_action :load_workshop, only: [:show, :edit, :update, :destroy]
 
   # GET /workshops
   def index
@@ -46,7 +46,7 @@ class WorkshopsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def get_workshop
+    def load_workshop
       @workshop = Workshop.find(params[:id])
     end
 

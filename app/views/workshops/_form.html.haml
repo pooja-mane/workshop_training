@@ -1,20 +1,20 @@
-= form_for(workshop) do |form|
-  - if workshop.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(workshop.errors.count, "error")
-        prohibited this workshop from being saved:
-      %ul
-        - workshop.errors.full_messages.each do |message|
-          %li= message
-  .field
-    = form.label :title
-    = form.text_field :title, id: :workshop_title
-  .field
-    = form.label :description
-    = form.text_area :description, id: :workshop_desc
-  .field
-    = form.label :place
-    = form.text_field :place
-  .actions
-    = form.submit
+= form_for workshop, html: { class: "form form-horizontal post" } do |form|
+  .form-group
+    = form.label :title, class: 'control-label col-lg-2'
+    .col-lg-10
+      = form.text_field :title, class: 'form-control', required: true
+    = form.error_span(:title)
+  .form-group
+    = form.label :description, class: 'control-label col-lg-2'
+    .col-lg-10
+      = form.text_area :description, class: 'form-control', required: true
+    = form.error_span(:description)
+  .form-group
+    = form.label :place, class: 'control-label col-lg-2'
+    .col-lg-10
+      = form.text_field :place, class: 'form-control', required: true
+    = form.error_span(:place)
+  .form-group
+    .col-lg-offset-2.col-lg-10
+      = form.submit nil,class: 'btn btn-primary'
+      = link_to 'Cancel', workshops_path, :class => 'btn btn-default'
