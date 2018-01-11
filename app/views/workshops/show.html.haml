@@ -1,12 +1,22 @@
+.page-header
+  %h1 Workshop
 %p
-  %strong Title:
+  %strong Title :
   = @workshop.title
 %p
-  %strong Description
+  %strong Description :
   = @workshop.description
 %p
-  %strong Place
+  %strong Start Date :
+  = @workshop.start_date.try(:strftime, "%d-%b-%Y %I:%H %p")
+%p
+  %strong Finish Date :
+  = @workshop.end_date.try(:strftime, "%d-%b-%Y %I:%H %p")
+%p
+  %strong Place :
   = @workshop.place
-= link_to 'Edit', edit_workshop_path(@workshop)
-|
-= link_to 'Back', workshops_path
+= link_to 'Back', workshops_path, class: 'btn btn-default'
+
+= link_to 'Edit', edit_workshop_path(@workshop), class: 'btn btn-default'
+
+= link_to 'Delete', workshop_path(@workshop), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger'

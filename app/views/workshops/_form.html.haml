@@ -1,20 +1,20 @@
-= form_for workshop, html: { class: "form form-horizontal post" } do |form|
+= form_for @workshop, html: { class: "form form-horizontal post" } do |form|
   .form-group
     = form.label :title, class: 'control-label col-lg-2'
-    .col-lg-10
+    .col-lg-6
       = form.text_field :title, class: 'form-control', required: true
     = form.error_span(:title)
   .form-group
     = form.label :description, class: 'control-label col-lg-2'
-    .col-lg-10
+    .col-lg-6
       = form.text_area :description, class: 'form-control', required: true
     = form.error_span(:description)
   .form-group
     = form.label :place, class: 'control-label col-lg-2'
-    .col-lg-10
+    .col-lg-6
       = form.text_field :place, class: 'form-control', required: true
     = form.error_span(:place)
   .form-group
     .col-lg-offset-2.col-lg-10
-      = form.submit nil,class: 'btn btn-primary'
+      = form.submit 'Submit', class: 'btn btn-primary'
       = link_to 'Cancel', workshops_path, :class => 'btn btn-default'
