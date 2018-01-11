@@ -1,4 +1,4 @@
-= form_with(model: workshop, local: true) do |form|
+= form_for(workshop) do |form|
   - if workshop.errors.any?
     #error_explanation
       %h2
