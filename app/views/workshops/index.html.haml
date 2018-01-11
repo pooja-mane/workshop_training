@@ -1,0 +1,26 @@
+%p#notice= notice
+%h1 Workshops
+%table
+  %thead
+    %tr
+      %th Title
+      %th Description
+      %th Start Date
+      %th Finished Date
+      %th Duration
+      %th Place
+      %th{:colspan => "3"}
+  %tbody
+    - @workshops.each do |workshop|
+      %tr
+        %td= workshop.title
+        %td= workshop.description
+        %td= workshop.start_date
+        %td= workshop.end_date
+        %td= workshop.duration
+        %td= workshop.place
+        %td= link_to 'Show', workshop
+        %td= link_to 'Edit', edit_workshop_path(workshop)
+        %td= link_to 'Destroy', workshop, method: :delete, data: { confirm: 'Are you sure?' }
+%br
+= link_to 'New workshop', new_workshop_path
