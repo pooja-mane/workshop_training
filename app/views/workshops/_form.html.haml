@@ -25,7 +25,7 @@
   .form-group
     = form.label :coach, class: 'control-label col-lg-2'
     .col-lg-6
-      = select "coach", "", Coach.all.collect {|c| [ c.name, c.id ] }, {prompt: 'SELECT'}, class: 'form-control'
+      = select "coach", "", collect_coaches, {prompt: 'SELECT'}, class: 'form-control'
   .form-group
     .col-lg-offset-2.col-lg-10
       = form.submit 'Submit', class: 'btn btn-primary'

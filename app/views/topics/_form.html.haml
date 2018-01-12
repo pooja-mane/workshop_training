@@ -1,0 +1,15 @@
+= form_for @topic, url: workshop_topics_path(@workshop), html: {class: 'form form-horizontal' } do |form|
+  .form-group
+    = form.label :title, class: 'control-label col-lg-2'
+    .col-lg-6
+      = form.text_field :title, class: 'form-control', required: true
+    = form.error_span(:title)
+  .form-group
+    = form.label :description, class: 'control-label col-lg-2'
+    .col-lg-6
+      = form.text_area :description, class: 'form-control', required: true
+    = form.error_span(:description)
+  .form-group
+    .col-lg-offset-2.col-lg-10
+      = form.submit 'Submit', class: 'btn btn-primary'
+      = link_to 'Cancel', workshop_path(@workshop), :class => 'btn btn-default'

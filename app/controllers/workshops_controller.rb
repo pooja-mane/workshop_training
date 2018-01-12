@@ -8,6 +8,7 @@ class WorkshopsController < ApplicationController
 
   # GET /workshops/1
   def show
+    @topics = @workshop.topics
   end
 
   # GET /workshops/new
