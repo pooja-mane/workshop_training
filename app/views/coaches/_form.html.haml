@@ -1,0 +1,15 @@
+= form_for @coach, html: { class: "form form-horizontal post" } do |form|
+  .form-group
+    = form.label :name, class: 'control-label col-lg-2'
+    .col-lg-6
+      = form.text_field :name, class: 'form-control', required: true
+    = form.error_span(:name)
+  .form-group
+    = form.label :email, class: 'control-label col-lg-2'
+    .col-lg-6
+      = form.text_field :email, class: 'form-control', required: true
+    = form.error_span(:email)
+  .form-group
+    .col-lg-offset-2.col-lg-10
+      = form.submit 'Submit', class: 'btn btn-primary'
+      = link_to 'Cancel', coaches_path, :class => 'btn btn-default'
