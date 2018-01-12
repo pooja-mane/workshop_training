@@ -1,6 +1,6 @@
 class CoachesController < ApplicationController
 
-  before_action :load_coach, only: [:show, :edit, :update, :destroy]
+  before_action :load_coach, only: [:show, :edit, :update, :destroy, :add_comment]
 
   def index
     @coaches = Coach.all
@@ -11,7 +11,6 @@ class CoachesController < ApplicationController
   end
 
   def create
-    p params[:coach], "================"
     @coach = Coach.new(coach_params)
     if @coach.save
       redirect_to coaches_path, notice: 'Coach was successfully created.'
@@ -21,6 +20,8 @@ class CoachesController < ApplicationController
   end
 
   def show
+    @comment = @coach.comments.new
+    @comments = @coach.comments
   end
 
   def edit

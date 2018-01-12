@@ -1,0 +1,4 @@
+- if @comment.errors.blank?
+  $('#comments').html("#{j(render partial: 'comments')}")
+  $('#commentor').val(' ')
+  $('#commentDesc').val(' ')

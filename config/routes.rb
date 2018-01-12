@@ -5,5 +5,7 @@ Rails.application.routes.draw do
   end
 
   root 'workshops#index'
-  resources :coaches
+  resources :coaches do
+    resources :comments, only: [:create, :destroy]
+  end
 end

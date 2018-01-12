@@ -11,3 +11,8 @@
 = link_to 'Edit', edit_coach_path(@coach), class: 'btn btn-default'
 
 = link_to 'Delete', coach_path(@coach), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger'
+%br
+%h1 Comments
+#comments
+  = render partial: 'comments/comments'
+= render partial: 'comments/form'

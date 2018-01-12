@@ -1,0 +1,17 @@
+= form_for @comment, url: coach_comments_path(@coach), remote: true, html: { class: "form form-horizontal post" } do |form|
+  .form-group
+    = form.label :commentor, class: 'control-label col-lg-2'
+    .col-lg-6
+      = form.text_field :commentor, class: 'form-control', id: 'commentor'
+  / .form-group
+  /   .col-lg-6
+  /     = form.hidden_field :commentable_id, value: @comment.commentable_id, class: 'form-control'
+  /     = form.hidden_field :commentable_type, value: @comment.commentable_type, class: 'form-control'
+  .form-group
+    = form.label :description, class: 'control-label col-lg-2'
+    .col-lg-6
+      = form.text_area :description, class: 'form-control', required: true, id: 'commentDesc'
+  .form-group
+    .col-lg-offset-2.col-lg-10
+      = form.submit 'Create Comment', class: 'btn btn-primary'
+      / = link_to 'Cancel', workshops_path, :class => 'btn btn-default'
