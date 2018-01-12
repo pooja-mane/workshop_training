@@ -34,5 +34,7 @@
       %td=topic.id
       %td= topic.title
       %td=topic.description
+      %td= link_to 'Edit', edit_workshop_topic_path(@workshop, topic), class: 'btn btn-default btn-xs'
+      %td= link_to 'Destroy', workshop_topic_path(@workshop, topic), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger'
 %br
-= link_to 'Add New Topic', new_workshop_topic_path(@workshop),class: 'btn btn-primary'
+= link_to 'Add New Topic', new_workshop_topic_path(@workshop), class: 'btn btn-primary'

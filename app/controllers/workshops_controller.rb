@@ -23,6 +23,8 @@ class WorkshopsController < ApplicationController
   # Workshops /workshops
   def create
     @workshop = Workshop.new(workshop_params)
+    @coach = Coach.where(params[:coach]).last
+    @workshop.coaches << @coach
     if @workshop.save
       redirect_to root_path, notice: 'Workshop was successfully created.'
     else
