@@ -1,8 +1,8 @@
 - @comments.each do |comment|
   %div
     %hr= comment.id
-    / = link_to "×", coach_comment_path(@coach, comment), method: :delete, remote: :true, confirm: "Are you sure you want to remove this comment?", :disable_with => "×", class: 'close'
+    = link_to "×", coach_comment_path(@coach, comment), method: :delete, remote: :true, confirm: "Are you sure you want to remove this comment?", :disable_with => "×", class: 'close'
     %h4
       = comment.commentor
-      %small= comment.updated_at
+      %small= comment.updated_at.strftime('%d-%B-%Y')
     %p= comment.description

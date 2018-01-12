@@ -20,7 +20,7 @@ class CoachesController < ApplicationController
   end
 
   def show
-    @comment = @coach.comments.new
+    @comment = Comment.new
     @comments = @coach.comments
   end
 
