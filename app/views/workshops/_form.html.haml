@@ -10,10 +10,22 @@
       = form.text_area :description, class: 'form-control', required: true
     = form.error_span(:description)
   .form-group
+    = form.label :start_date, class: 'control-label col-lg-2'
+    .col-lg-6
+      = form.date_field :start_date, class: 'form-control'
+  .form-group
+    = form.label :end_date, class: 'control-label col-lg-2'
+    .col-lg-6
+      = form.date_field :end_date, class: 'form-control'
+  .form-group
     = form.label :place, class: 'control-label col-lg-2'
     .col-lg-6
       = form.text_field :place, class: 'form-control', required: true
     = form.error_span(:place)
+  .form-group
+    = form.label :coach, class: 'control-label col-lg-2'
+    .col-lg-6
+      = select "coach", "", Coach.all.collect {|c| [ c.name, c.id ] }, {prompt: 'SELECT'}, class: 'form-control'
   .form-group
     .col-lg-offset-2.col-lg-10
       = form.submit 'Submit', class: 'btn btn-primary'
